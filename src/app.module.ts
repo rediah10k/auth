@@ -4,9 +4,12 @@ import { ConfigModule } from "@nestjs/config";
 import { EnvConfiguration } from "./common/config/env.config";
 @Module({
   imports: [
-      ConfigModule.forRoot({
+    ConfigModule.forRoot({
       load: [EnvConfiguration],
+      isGlobal: true,
+      envFilePath: '.env',
     }),
-    AuthModule],
+    AuthModule,
+  ],
 })
 export class AppModule {}
